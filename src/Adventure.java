@@ -9,7 +9,9 @@ public class Adventure {
         Room room4 = new Room("Du går videre og foran dig ser du grotten, hvor du vågnede. Gik du bare i en cirkel?");
         Room room5 = new Room("Du finder endelig udgangen af denne enorme skov – tillykke!");
         Room room6 = new Room ("Mens du bevæger dig videre, finder du en bro i nærheden.");
-
+        Room room7= new Room ("foran broen står en mand, løs hans gåde for at fortsætte");
+        Room room8 = new Room ("Du forsætter over broen og ser et enormt tårn");
+        Room room9 = new Room("Du træder ind i tårnet og ser en guldbelagt kiste, løs gåden for at åbne den");
         currentRoom = room1;
     }
 }
