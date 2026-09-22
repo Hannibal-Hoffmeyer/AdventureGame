@@ -5,10 +5,6 @@ public class Room {
         this.description = description;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
 }
 
 
