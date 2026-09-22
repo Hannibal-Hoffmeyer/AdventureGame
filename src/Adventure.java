@@ -6,6 +6,9 @@ public class Adventure {
         Room room1 = new Room("Du vågner op i en mørk grotte");
         Room room2 = new Room("Du bevæger dig dybere ned i grotten, der ligger en bjørn og sover...");
         Room room3 = new Room("du bevæger dig ud af grotten, du ankommer til en lysning i en skov");
+        Room room4 = new Room("Du går videre og foran dig ser du grotten, hvor du vågnede. Gik du bare i en cirkel?");
+        Room room5 = new Room("Du finder endelig udgangen af denne enorme skov – tillykke!");
+        Room room6 = new Room ("Mens du bevæger dig videre, finder du en bro i nærheden.");
 
         currentRoom = room1;
     }
