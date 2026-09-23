@@ -15,16 +15,20 @@ public class Adventure {
         currentRoom = room1;
 
         boolean AdventureStart = true;
+        IO.println("velkommen til Adventure spillet");
+        IO.println();
+        IO.println("Dine bevægelses knapper er N,S,E,W som svarer til et kompass, derudover kan du skrive LOOK for at observere dine omgivelser");
+        IO.println();
 
         while(AdventureStart){
 
-            String kommando = IO.readln().toUpperCase();
+            String kommando = IO.readln("Indtast din første kommando!: ").toUpperCase();
             switch(kommando){
                 case "LOOK" -> {
-                    IO.println(currentRoom);
+                    IO.println(currentRoom.getDescription());
                 }
                 case "N" ->{
-                    IO.println("D fortsætter nordpå");
+                    IO.println("Du fortsætter nordpå");
                 }
                 case "S" ->{
                     IO.println("Du fortsætter sydpå");
