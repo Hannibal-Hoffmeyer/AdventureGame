@@ -41,7 +41,7 @@ room9.setRoomNorth(room6);
             String kommando = IO.readln().toUpperCase();
             switch(kommando){
                 case "LOOK" -> {
-                    IO.println(currentRoom);
+                    IO.println(currentRoom.getDescription());
                 }
                 case "N" ->{
                     IO.println("D fortsætter nordpå");
