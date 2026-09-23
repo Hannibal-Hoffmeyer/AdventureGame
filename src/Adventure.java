@@ -2,7 +2,7 @@ public class Adventure {
 
     private Room currentRoom;
 
-    public Adventure() {
+    public void AdventureStart() {
         Room room1 = new Room("Du vågner op i en mørk grotte");
         Room room2 = new Room("Du bevæger dig dybere ned i grotten, der ligger en bjørn og sover...");
         Room room3 = new Room("du bevæger dig ud af grotten, du ankommer til en lysning i en skov");
@@ -13,5 +13,15 @@ public class Adventure {
         Room room8 = new Room ("Du forsætter over broen og ser et enormt tårn");
         Room room9 = new Room("Du træder ind i tårnet og ser en guldbelagt kiste, løs gåden for at åbne den");
         currentRoom = room1;
+
+        boolean AdventureStart = true;
+
+        while(AdventureStart){
+
+            String kommando = IO.readln().toUpperCase();
+        }
+
+
     }
+
 }
