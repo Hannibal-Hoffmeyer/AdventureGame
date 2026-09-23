@@ -16,7 +16,10 @@ public class Adventure {
         currentRoom = room1;
 
         boolean AdventureStart = true;
-
+        IO.println("velkommen til Adventure spillet");
+        IO.println();
+        IO.println("Dine bevægelses knapper er N,S,E,W som svarer til et kompass, derudover kan du skrive LOOK for at observere dine omgivelser");
+        IO.println();
         while(AdventureStart){
 
             String kommando = IO.readln().toUpperCase();
