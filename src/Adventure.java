@@ -14,7 +14,23 @@ public class Adventure {
         Room room9 = new Room("Du forsætter over broen og ser et enormt tårn mød øst.");
 
         currentRoom = room1;
-
+room1.setRoomEast(room2);
+room1.setRoomSouth(room4);
+room2.setRoomEast(room3);
+room2.setRoomWest(room1);
+room3.setRoomWest(room2);
+room3.setRoomSouth(room6);
+room4.setRoomNorth(room1);
+room4.setRoomSouth(room7);
+room6.setRoomNorth(room3);
+room6.setRoomSouth(room9);
+room7.setRoomNorth(room4);
+room7.setRoomEast(room8);
+room8.setRoomNorth(room5);
+room8.setRoomWest(room7);
+room8.setRoomEast(room9);
+room9.setRoomWest(room8);
+room9.setRoomNorth(room6);
         boolean AdventureStart = true;
         IO.println("velkommen til Adventure spillet");
         IO.println();
