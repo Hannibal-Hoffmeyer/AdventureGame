@@ -19,6 +19,24 @@ public class Adventure {
         while(AdventureStart){
 
             String kommando = IO.readln().toUpperCase();
+            switch(kommando){
+                case "LOOK" -> {
+                    IO.println(currentRoom);
+                }
+                case "N" ->{
+                    IO.println("D fortsætter nordpå");
+                }
+                case "S" ->{
+                    IO.println("Du fortsætter sydpå");
+                }
+                case "E" ->{
+                    IO.println("Du fortsætter østpå");
+                }
+                case "W" ->{
+                    IO.println("Du fortsætter vestpå");
+                }
+
+            }
         }
 
 
