@@ -77,11 +77,7 @@ public class Adventure {
                         IO.println("You cannot go west.");
                     }
                 }
-
             }
         }
-
-
     }
-
 }
