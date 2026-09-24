@@ -9,4 +9,7 @@ public class UserInterFace {
         IO.println();
         IO.println("Your inputs are N, S, E, and W, which corresponds to a compass. Additionally, you can type LOOK to observe your surroundings.");
         IO.println();    }
+    public void errorMessage(String message){
+      IO.println(message);
+    }
 }
