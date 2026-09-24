@@ -32,14 +32,13 @@ public class Adventure {
         room9.setRoomWest(room8);
         room9.setRoomNorth(room6);
         boolean AdventureStart = true;
-        IO.println("Welcome to the adventure game!");
-        IO.println();
-        IO.println("Your inputs are N, S, E, and W, which corresponds to a compass. Additionally, you can type LOOK to observe your surroundings.");
-        IO.println();
+        UserInterFace userInterFace = new UserInterFace();
+
+        userInterFace.welcomeToTheGame();
 
         while (AdventureStart) {
 
-            String kommando = IO.readln("Please input your first commando: ").toUpperCase();
+            String kommando = userInterFace.command();
             switch (kommando) {
                 case "LOOK" -> {
                     IO.println(currentRoom.getDescription());
