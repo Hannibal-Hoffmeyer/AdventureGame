@@ -12,7 +12,9 @@ public class Map {
                  Item flashlight = new Item ("Flashlight", "A bright and powerfull Flashlight");
                  Item rope = new Item ("Rope", "A thicc and sturdy Rope");
 public Map() {
-
+    room1.addItem(flashlight);
+    room6.addItem(key);
+    room3.addItem(rope);
     room1.setRoomEast(room2);
     room1.setRoomSouth(room4);
     room2.setRoomEast(room3);
