@@ -8,6 +8,9 @@ public class Map {
    private final Room room7 = new Room("You find an old hut nearby, but it doesn't look like anyone is there; it has been abandoned for a long time.");
    private final Room room8 = new Room("At the tower you see there's no one guarding it and the door is half-open. Maybe someone's inside?");
    private final Room room9 = new Room("You continue across the bridge and see a huge tower to the east.");
+                 Item key = new Item("Key", "A shiny golden key");
+                 Item flashlight = new Item ("Flashlight", "A bright and powerfull Flashlight");
+                 Item rope = new Item ("Rope", "A thicc and sturdy Rope");
 public Map() {
 
     room1.setRoomEast(room2);
