@@ -1,10 +1,9 @@
 public class Adventure {
 
 
-
     public void AdventureStart() {
-    Map map = new Map();
-    Player player = new Player(map.getFirstRoom());
+        Map map = new Map();
+        Player player = new Player(map.getFirstRoom());
 
 
         boolean AdventureStart = true;
@@ -49,7 +48,7 @@ public class Adventure {
                 }
                 case "W" -> {
                     if (player.getCurrentRoom().getRoomWest() != null) {
-                        Room roomWest= player.getCurrentRoom().getRoomWest();
+                        Room roomWest = player.getCurrentRoom().getRoomWest();
                         player.setCurrentRoom(roomWest);
                         IO.println(player.getCurrentRoom().getDescription());
                     } else {
