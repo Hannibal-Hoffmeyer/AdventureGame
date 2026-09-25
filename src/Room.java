@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 
-
 public class Room {
     private String description;
     private Room roomNorth;
@@ -16,19 +15,17 @@ public class Room {
         this.items = new ArrayList<>();
     }
 
-    public void addItem(Item item){
+    public void addItem(Item item) {
         items.add(item);
     }
 
-    public Item findItem(String name){
-        for (Item item : items){
-            if (item.getShortName().equals(name)) {
-                return item;
-            }
+    public void printItems() {
+        for (Item item : items) {
+            IO.println("you see: " + item);
         }
-        return null;
     }
-    public void removeItem(Item item){
+
+    public void removeItem(Item item) {
         items.remove(item);
     }
 
@@ -36,12 +33,13 @@ public class Room {
         return description;
     }
 
-   public Room getRoomNorth(){
+    public Room getRoomNorth() {
         return roomNorth;
-   }
-   public Room getRoomWest(){
+    }
+
+    public Room getRoomWest() {
         return roomWest;
-   }
+    }
 
     public Room getRoomSouth() {
         return roomSouth;
@@ -50,8 +48,9 @@ public class Room {
     public Room getRoomEast() {
         return roomEast;
     }
-    public void setRoomNorth (Room roomNorth){
-       this.roomNorth = roomNorth;
+
+    public void setRoomNorth(Room roomNorth) {
+        this.roomNorth = roomNorth;
     }
 
     public void setRoomWest(Room roomWest) {

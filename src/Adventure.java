@@ -17,6 +17,7 @@ public class Adventure {
             switch (kommando) {
                 case "LOOK" -> {
                     IO.println(player.getCurrentRoom().getDescription());
+                    player.getCurrentRoom().printItems();
                 }
                 case "N" -> {
                     if (player.getCurrentRoom().getRoomNorth() != null) {
@@ -56,6 +57,7 @@ public class Adventure {
                     }
                 }
             }
+
         }
     }
 }
