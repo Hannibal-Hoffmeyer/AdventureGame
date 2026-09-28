@@ -34,6 +34,8 @@ public class Map {
         room9.setRoomNorth(room6);
 
         room1.addItem(flashlight);
+        room7.addItem(rope);
+        room8.addItem(key);
     }
 
     public Room getFirstRoom() {
