@@ -82,7 +82,22 @@ public class Adventure {
                         IO.println("There is no such item here.");
                     }
                 }
+                case "DROP" -> {
+                    if (parts.length < 2) {
+                        IO.println("Please specify an item.");
+                        break;
+                    }
 
+                    String itemName = parts[1];
+                    Item item = player.getItem(itemName); // find i inventory, ikke take()
+
+                    if (item != null) {
+                        player.dropItem(item, player.getCurrentRoom());
+                        IO.println("You dropped the " + item.getShortName() + ".");
+                    } else {
+                        IO.println("You are not carrying that item.");
+                    }
+                }
             }
 
         }

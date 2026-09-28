@@ -40,4 +40,12 @@ public class Player {
     public void setCurrentRoom(Room room) {
         this.currentRoom = room;
     }
+    public Item getItem(String itemName) {
+        for (Item item : inventory) {
+            if (item.getShortName().equalsIgnoreCase(itemName)) {
+                return item;
+            }
+        }
+        return null;
+    }
 }
