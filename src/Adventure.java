@@ -24,6 +24,9 @@ public class Adventure {
                     IO.println(player.getCurrentRoom().getDescription());
                     player.getCurrentRoom().printItems();
                 }
+                case "INVENTORY" -> {
+                    player.printInventory();
+                }
                 case "N" -> {
                     if (player.getCurrentRoom().getRoomNorth() != null) {
                         Room northRoom = player.getCurrentRoom().getRoomNorth();
