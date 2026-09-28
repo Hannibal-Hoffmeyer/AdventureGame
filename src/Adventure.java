@@ -24,7 +24,7 @@ public class Adventure {
                     IO.println(player.getCurrentRoom().getDescription());
                     player.getCurrentRoom().printItems();
                 }
-                case "INVENTORY" -> {
+                case "INVENTORY", "INV", "I" -> {
                     player.printInventory();
                 }
                 case "N" -> {
