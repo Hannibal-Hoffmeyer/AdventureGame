@@ -1,7 +1,7 @@
 public class UserInterFace {
 
     public String command() {
-        return IO.readln("Please input your first commando: ").toUpperCase();
+        return IO.readln("Please input your first commando: ");
     }
 
     public void welcomeToTheGame() {

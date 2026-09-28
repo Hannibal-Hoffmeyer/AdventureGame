@@ -25,6 +25,24 @@ public class Room {
         }
     }
 
+    public Item getItem(String shortName) {
+        for (Item item : items) {
+            if (item.getShortName().equalsIgnoreCase(shortName)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public Item findItem(String shortName) {
+        for (Item item : items) {
+            if (item.getShortName().equalsIgnoreCase(shortName)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public void removeItem(Item item) {
         items.remove(item);
     }

@@ -13,7 +13,12 @@ public class Adventure {
 
         while (AdventureStart) {
 
-            String kommando = userInterFace.command();
+            String input = userInterFace.command();
+
+            String[] parts = input.split(" ", 2);
+
+            String kommando = parts[0].toUpperCase();
+
             switch (kommando) {
                 case "LOOK" -> {
                     IO.println(player.getCurrentRoom().getDescription());
@@ -55,9 +60,29 @@ public class Adventure {
                     } else {
                         userInterFace.errorMessage("You cannot go west.");
                     }
+
                 }
+                case "TAKE" -> {
+                    if (parts.length < 2) {
+                        IO.println("Please specify an item.");
+                        break;
+                    }
+
+                    String itemName = parts[1];
+
+                    Item item = player.getCurrentRoom().getItem(itemName);
+
+                    if (item != null) {
+                        player.take(item, player.getCurrentRoom());
+                        IO.println("You picked up the " + item.getShortName() + ".");
+                    } else {
+                        IO.println("There is no such item here.");
+                    }
+                }
+
             }
 
         }
+
     }
 }

@@ -4,7 +4,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory = new ArrayList<>();
 
-    public void pickUp(Item item, Room room) {
+    public void take(Item item, Room room) {
         room.removeItem(item);
         inventory.add(item);
 
