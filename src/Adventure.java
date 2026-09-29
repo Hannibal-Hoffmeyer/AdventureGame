@@ -24,6 +24,7 @@ public class Adventure {
                     IO.println(player.getCurrentRoom().getDescription());
                     player.getCurrentRoom().printItems();
                 }
+
                 case "INVENTORY", "INV", "I" -> {
                     player.printInventory();
                 }
@@ -97,6 +98,15 @@ public class Adventure {
                     } else {
                         IO.println("You are not carrying that item.");
                     }
+                }
+                case "EAT" -> {
+                    if (parts.length < 2){
+                        IO.println("Please specify an item to eat.");
+                        break;
+                    }
+                    String itemName = parts[1];
+                    EatResult eatResult = player.eat(itemName);
+                    userInterFace.printEatResult(eatResult, itemName);
                 }
             }
 

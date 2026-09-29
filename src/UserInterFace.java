@@ -14,4 +14,18 @@ public class UserInterFace {
     public void errorMessage(String message) {
         IO.println(message);
     }
+
+    public void printEatResult(EatResult eatResult, String itemName) {
+        if(eatResult.equals(EatResult.EATEN)){
+            IO.println("You ate the " + itemName);
+        }
+        if(eatResult.equals(EatResult.NOT_FOOD)){
+            IO.println("That is not a food item");
+        }
+        if(eatResult.equals(EatResult.NOT_FOUND)){
+           IO.println("This item does not exist");
+        }
+
+    }
 }
+

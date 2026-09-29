@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory = new ArrayList<>();
+    private int health = 100;
+
 
     public Player(Room currentRoom) {
         this.currentRoom = currentRoom;
@@ -47,5 +49,32 @@ public class Player {
             }
         }
         return null;
+    }
+
+    public EatResult eat(String itemName){
+      for (Item item : inventory) {
+          if(item.getShortName().equals(itemName)){
+            if(item instanceof Food){
+               health += ((Food) item).getHealthPoints();
+               inventory.remove(item);
+               return EatResult.EATEN;
+              }
+              return EatResult.NOT_FOOD;
+          }
+
+      }
+      for (Item item : currentRoom.getItems()){
+          if(item.getShortName().equals(itemName)){
+              if(item instanceof Food){
+                  health += ((Food) item).getHealthPoints();
+                  inventory.remove(item);
+                  return EatResult.EATEN;
+              }
+              return EatResult.NOT_FOOD;
+          }
+          
+
+      }
+      return EatResult.NOT_FOUND;
     }
 }
