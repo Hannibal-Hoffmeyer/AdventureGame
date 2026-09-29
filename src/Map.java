@@ -11,6 +11,8 @@ public class Map {
     Item key = new Item("Key", "A shiny golden key");
     Item flashlight = new Item("Flashlight", "A bright and powerfull Flashlight");
     Item rope = new Item("Rope", "A thicc and sturdy Rope");
+    Food apple = new Food("Apple", "A delicious red apple", 10);
+    Food mushroom = new Food("Mushroom", "A red mushroom with white spots", -10);
 
 
     public Map() {
@@ -36,6 +38,8 @@ public class Map {
         room1.addItem(flashlight);
         room7.addItem(rope);
         room8.addItem(key);
+        room1.addItem(apple);
+        room2.addItem(mushroom);
     }
 
     public Room getFirstRoom() {
