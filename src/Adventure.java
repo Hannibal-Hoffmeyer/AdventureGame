@@ -89,7 +89,7 @@ public class Adventure {
                     }
 
                     String itemName = parts[1];
-                    Item item = player.getItem(itemName); // find i inventory, ikke take()
+                    Item item = player.getItem(itemName);
 
                     if (item != null) {
                         player.dropItem(item, player.getCurrentRoom());
