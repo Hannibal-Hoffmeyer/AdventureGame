@@ -1,4 +1,5 @@
 public class Map {
+
     private final Room room1 = new Room("You are inside a dark cave. There are two ways out: to the east and to the south.");
     private final Room room2 = new Room("You move deeper into the cave and find a bear lying there asleep...");
     private final Room room3 = new Room("You find yourself outside the cave; you arrive at a clearing in a forest.");
@@ -9,8 +10,8 @@ public class Map {
     private final Room room8 = new Room("At the tower you see there's no one guarding it and the door is half-open. Maybe someone's inside?");
     private final Room room9 = new Room("You continue across the bridge and see a huge tower to the east.");
     Item key = new Item("Key", "A shiny golden key");
-    Item flashlight = new Item("Flashlight", "A bright and powerfull Flashlight");
-    Item rope = new Item("Rope", "A thicc and sturdy Rope");
+    Item flashlight = new Item("Flashlight", "A bright and long-lasting flashlight");
+    Item rope = new Item("Rope", "A thick and sturdy rope");
     Food apple = new Food("Apple", "A delicious red apple", 10);
     Food mushroom = new Food("Mushroom", "A red mushroom with white spots", -10);
 

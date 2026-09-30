@@ -1,6 +1,5 @@
 public class Adventure {
 
-
     public void AdventureStart() {
         Map map = new Map();
         Player player = new Player(map.getFirstRoom());
