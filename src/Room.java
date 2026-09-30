@@ -34,14 +34,7 @@ public class Room {
         return null;
     }
 
-    public Item findItem(String shortName) {
-        for (Item item : items) {
-            if (item.getShortName().equalsIgnoreCase(shortName)) {
-                return item;
-            }
-        }
-        return null;
-    }
+
 
     public ArrayList<Item> getItems() {
         return items;

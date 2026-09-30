@@ -9,6 +9,9 @@ public class Player {
     public Player(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
+    public int getHealth() {
+        return health;
+    }
 
     public void take(Item item, Room room) {
         room.removeItem(item);
@@ -42,6 +45,7 @@ public class Player {
     public void setCurrentRoom(Room room) {
         this.currentRoom = room;
     }
+
     public Item getItem(String itemName) {
         for (Item item : inventory) {
             if (item.getShortName().equalsIgnoreCase(itemName)) {
@@ -51,30 +55,33 @@ public class Player {
         return null;
     }
 
-    public EatResult eat(String itemName){
-      for (Item item : inventory) {
-          if(item.getShortName().equals(itemName)){
-            if(item instanceof Food){
-               health += ((Food) item).getHealthPoints();
-               inventory.remove(item);
-               return EatResult.EATEN;
-              }
-              return EatResult.NOT_FOOD;
-          }
+    public EatResult eat(String itemName) {
+        Item item = getItem(itemName);
+        if (item != null) {
+            if (item.getShortName().equals(itemName)) {
+                if (item instanceof Food) {
+                    health += ((Food) item).getHealthPoints();
+                    inventory.remove(item);
+                    return isGood((Food) item);
+                }
+                return EatResult.NOT_FOOD;
+            }
+        }
+        Item roomItem = currentRoom.getItem(itemName);
+        if (roomItem != null) {
+            if (roomItem instanceof Food) {
+                health += ((Food) roomItem).getHealthPoints();
+                currentRoom.removeItem(roomItem);
+                return isGood((Food) roomItem);
+            }
+            return EatResult.NOT_FOOD;
+        }
 
-      }
-      for (Item item : currentRoom.getItems()){
-          if(item.getShortName().equals(itemName)){
-              if(item instanceof Food){
-                  health += ((Food) item).getHealthPoints();
-                  inventory.remove(item);
-                  return EatResult.EATEN;
-              }
-              return EatResult.NOT_FOOD;
-          }
-          
+        return EatResult.NOT_FOUND;
+    }
 
-      }
-      return EatResult.NOT_FOUND;
+    EatResult isGood(Food food){
+        if(food.getHealthPoints() > 0) return EatResult.GOODFOOD;
+        else return EatResult.BADFOOD;
     }
 }

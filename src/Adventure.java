@@ -24,6 +24,12 @@ public class Adventure {
                     IO.println(player.getCurrentRoom().getDescription());
                     player.getCurrentRoom().printItems();
                 }
+                case "HEALTH" -> {
+                    if (player.getHealth() > 100){
+                        IO.println(player.getHealth() + " You are in good health");
+                    }
+                    else IO.println(player.getHealth() + " You are low health, eat some food to get your strengt back");
+                }
 
                 case "INVENTORY", "INV", "I" -> {
                     player.printInventory();
@@ -106,7 +112,8 @@ public class Adventure {
                     }
                     String itemName = parts[1];
                     EatResult eatResult = player.eat(itemName);
-                    userInterFace.printEatResult(eatResult, itemName);
+                    if(eatResult == null) IO.println("ERROR");
+                    userInterFace.printEatResult(eatResult, itemName, player.getHealth());
                 }
             }
 
