@@ -14,6 +14,8 @@ public class Map {
     Item rope = new Item("Rope", "A thick and sturdy rope");
     Food apple = new Food("Apple", "A delicious red apple", 10);
     Food mushroom = new Food("Mushroom", "A red mushroom with white spots", -10);
+    MeleeWeapon sword = new MeleeWeapon("Sword", "A rusty sword", -20);
+    RangedWeapon crossbow = new RangedWeapon("Crossbow", "A wooden crossbow" ,-15, 5);
 
 
     public Map() {

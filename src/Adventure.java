@@ -114,6 +114,25 @@ public class Adventure {
                     if(eatResult == null) IO.println("ERROR");
                     userInterFace.printEatResult(eatResult, itemName, player.getHealth());
                 }
+                case "EQUIP" -> {
+                    if (parts.length < 2){
+                        IO.println("Please specify an item to equip.");
+                        break;
+                    }
+                    String itemName = parts[1];
+                    EquipResult equipResult = player.equipWeapon(itemName);
+
+                    if (EquipResult.EQUIPPED.equals(equipResult)){
+                        IO.println("you have equipped " + itemName);
+                    }
+                    if (EquipResult.NOT_FOUND.equals(equipResult)){
+                        IO.println("that weapon dosent exist");
+
+                    }
+                    if (EquipResult.NOT_WEAPON.equals(equipResult)){
+                        IO.println(itemName + " is not a weapon");
+                    }
+                }
             }
 
         }
