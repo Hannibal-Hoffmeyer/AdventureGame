@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Player {
     private Room currentRoom;
@@ -9,6 +10,7 @@ public class Player {
     public Player(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
+
     public int getHealth() {
         return health;
     }
@@ -58,14 +60,13 @@ public class Player {
     public EatResult eat(String itemName) {
         Item item = getItem(itemName);
         if (item != null) {
-            if (item.getShortName().equals(itemName)) {
                 if (item instanceof Food) {
                     health += ((Food) item).getHealthPoints();
                     inventory.remove(item);
                     return isGood((Food) item);
                 }
                 return EatResult.NOT_FOOD;
-            }
+
         }
         Item roomItem = currentRoom.getItem(itemName);
         if (roomItem != null) {
@@ -80,8 +81,8 @@ public class Player {
         return EatResult.NOT_FOUND;
     }
 
-    EatResult isGood(Food food){
-        if(food.getHealthPoints() > 0) return EatResult.GOODFOOD;
+    EatResult isGood(Food food) {
+        if (food.getHealthPoints() > 0) return EatResult.GOODFOOD;
         else return EatResult.BADFOOD;
     }
 }
