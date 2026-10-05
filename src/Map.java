@@ -43,6 +43,8 @@ public class Map {
         room8.addItem(key);
         room1.addItem(apple);
         room2.addItem(mushroom);
+        room4.addItem(sword);
+        room3.addItem(crossbow);
     }
 
     public Room getFirstRoom() {
