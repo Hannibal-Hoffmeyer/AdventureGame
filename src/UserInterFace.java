@@ -9,7 +9,7 @@ public class UserInterFace {
         IO.println();
         IO.println("Your inputs are N, S, E, and W, which corresponds to a compass. Additionally, you can type LOOK to observe your surroundings.");
         IO.println("You can also eat food to regain life if you lost some. Simply type EAT, followed by the object.");
-        IO.println("but be careful! Not anything is good for you");
+        IO.println("But be careful! Not anything can be good for you");
         IO.println();
     }
 

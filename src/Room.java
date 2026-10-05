@@ -20,7 +20,7 @@ public class Room {
 
     public void printItems() {
         for (Item item : items) {
-            IO.println("you see: " + item.getLongName());
+            IO.println("You see: " + item.getLongName());
         }
     }
 

@@ -123,10 +123,10 @@ public class Adventure {
                     EquipResult equipResult = player.equipWeapon(itemName);
 
                     if (EquipResult.EQUIPPED.equals(equipResult)) {
-                        IO.println("you have equipped " + itemName);
+                        IO.println("You have equipped " + itemName);
                     }
                     if (EquipResult.NOT_FOUND.equals(equipResult)) {
-                        IO.println("that weapon dosent exist");
+                        IO.println("That weapon doesn't exist");
 
                     }
                     if (EquipResult.NOT_WEAPON.equals(equipResult)) {
