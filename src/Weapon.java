@@ -8,6 +8,10 @@ abstract int attack();
 
 abstract int remainingAmmunition();
 
+public boolean outOfAmmunition() {
+    return remainingAmmunition() == 0;
+}
+
 public int getDamage(){
     return damage;
 }

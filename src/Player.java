@@ -1,11 +1,10 @@
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory = new ArrayList<>();
     private int health = 100;
-    private Weapon equipped;
+    private Weapon weapon;
 
     public Player(Room currentRoom) {
         this.currentRoom = currentRoom;
@@ -92,9 +91,13 @@ public class Player {
             return EquipResult.NOT_FOUND;
         }
         if (item instanceof Weapon){
-            equipped = (Weapon) item;
+            weapon = (Weapon) item;
             return EquipResult.EQUIPPED;
         }
         return EquipResult.NOT_WEAPON;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
     }
 }

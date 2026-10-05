@@ -24,10 +24,10 @@ public class Adventure {
                     player.getCurrentRoom().printItems();
                 }
                 case "HEALTH" -> {
-                    if (player.getHealth() > 100){
+                    if (player.getHealth() >= 100) {
                         IO.println(player.getHealth() + " You are in good health");
-                    }
-                    else IO.println(player.getHealth() + " You are low health, eat some food to get your strengt back");
+                    } else
+                        IO.println(player.getHealth() + " You are low health, eat some food to get your strengt back");
                 }
 
                 case "INVENTORY", "INV", "I" -> {
@@ -105,37 +105,47 @@ public class Adventure {
                     }
                 }
                 case "EAT" -> {
-                    if (parts.length < 2){
+                    if (parts.length < 2) {
                         IO.println("Please specify an item to eat.");
                         break;
                     }
                     String itemName = parts[1];
                     EatResult eatResult = player.eat(itemName);
-                    if(eatResult == null) IO.println("ERROR");
+                    if (eatResult == null) IO.println("ERROR");
                     userInterFace.printEatResult(eatResult, itemName, player.getHealth());
                 }
                 case "EQUIP" -> {
-                    if (parts.length < 2){
+                    if (parts.length < 2) {
                         IO.println("Please specify an item to equip.");
                         break;
                     }
                     String itemName = parts[1];
                     EquipResult equipResult = player.equipWeapon(itemName);
 
-                    if (EquipResult.EQUIPPED.equals(equipResult)){
+                    if (EquipResult.EQUIPPED.equals(equipResult)) {
                         IO.println("you have equipped " + itemName);
                     }
-                    if (EquipResult.NOT_FOUND.equals(equipResult)){
+                    if (EquipResult.NOT_FOUND.equals(equipResult)) {
                         IO.println("that weapon dosent exist");
 
                     }
-                    if (EquipResult.NOT_WEAPON.equals(equipResult)){
+                    if (EquipResult.NOT_WEAPON.equals(equipResult)) {
                         IO.println(itemName + " is not a weapon");
                     }
                 }
+                case "AMMUNITION", "AMMO" -> {
+                    Weapon weapon = player.getWeapon();
+                    if (weapon == null) {
+                        IO.println("You have no weapon");
+                    } else if (weapon.outOfAmmunition()) {
+                        IO.println("Out of ammo");
+                    } else {
+                        IO.println("Ammo left: " + weapon.remainingAmmunition());
+                }
             }
-
         }
 
     }
+
+}
 }
