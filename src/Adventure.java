@@ -141,11 +141,31 @@ public class Adventure {
                         IO.println("Out of ammo");
                     } else {
                         IO.println("Ammo left: " + weapon.remainingAmmunition());
+                    }
                 }
+                case "ATTACK" -> {
+                    if (player.getWeapon() == null) {
+                        IO.println("You don't have a weapon equipped.");
+                        break;
+                    }
+
+                    if (!player.getWeapon().canUse()) {
+                        IO.println("Your weapon is out of ammunition.");
+                        break;
+                    }
+
+                    int damage = player.getWeapon().attack();
+
+                    IO.println("You attacked with the " + player.getWeapon().getShortName() + ".");
+                    IO.println("Damage: " + damage);
+
+                    if (player.getWeapon().remainingAmmunition() >= 0) {
+                        IO.println("Ammunition left: " + player.getWeapon().remainingAmmunition());
+                    }
+
+                }
+
             }
         }
-
     }
-
-}
 }

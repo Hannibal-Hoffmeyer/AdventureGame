@@ -1,6 +1,5 @@
 public class MeleeWeapon extends Weapon {
 
-
     public MeleeWeapon(String shortName, String longName, int damage) {
         super(shortName, longName, damage);
     }
@@ -12,6 +11,16 @@ public class MeleeWeapon extends Weapon {
 
     @Override
     public int remainingAmmunition() {
+        return -1;
+    }
+
+    @Override
+    public boolean canUse() {
+        return true;
+    }
+
+    @Override
+    public int use() {
         return -1;
     }
 }
