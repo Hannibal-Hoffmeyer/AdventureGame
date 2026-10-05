@@ -27,11 +27,16 @@ public class Player {
     public void printInventory() {
         if (inventory.isEmpty()) {
             IO.println("Your inventory is empty.");
-            return;
+        } else {
+            for (Item item : inventory) {
+                IO.println("You have: " + item.getLongName());
+            }
         }
 
-        for (Item item : inventory) {
-            IO.println("You have: " + item.getLongName());
+        if (weapon == null) {
+            IO.println("Equipped weapon: none");
+        } else {
+            IO.println("Equipped weapon: " + weapon.getLongName());
         }
     }
 
@@ -58,42 +63,52 @@ public class Player {
 
     public EatResult eat(String itemName) {
         Item item = getItem(itemName);
-        if (item != null) {
-                if (item instanceof Food) {
-                    health += ((Food) item).getHealthPoints();
-                    inventory.remove(item);
-                    return isGood((Food) item);
-                }
-                return EatResult.NOT_FOOD;
 
+        if (item != null) {
+            if (item instanceof Food) {
+                health += ((Food) item).getHealthPoints();
+                inventory.remove(item);
+                return isGood((Food) item);
+            }
+
+            return EatResult.NOT_FOOD;
         }
+
         Item roomItem = currentRoom.getItem(itemName);
+
         if (roomItem != null) {
             if (roomItem instanceof Food) {
                 health += ((Food) roomItem).getHealthPoints();
                 currentRoom.removeItem(roomItem);
                 return isGood((Food) roomItem);
             }
+
             return EatResult.NOT_FOOD;
         }
 
         return EatResult.NOT_FOUND;
     }
 
-
     EatResult isGood(Food food) {
-        if (food.getHealthPoints() > 0) return EatResult.GOODFOOD;
-        else return EatResult.BADFOOD;
+        if (food.getHealthPoints() > 0) {
+            return EatResult.GOODFOOD;
+        } else {
+            return EatResult.BADFOOD;
+        }
     }
-    public EquipResult equipWeapon(String itemName){
+
+    public EquipResult equipWeapon(String itemName) {
         Item item = getItem(itemName);
-        if (item == null){
+
+        if (item == null) {
             return EquipResult.NOT_FOUND;
         }
-        if (item instanceof Weapon){
+
+        if (item instanceof Weapon) {
             weapon = (Weapon) item;
             return EquipResult.EQUIPPED;
         }
+
         return EquipResult.NOT_WEAPON;
     }
 
