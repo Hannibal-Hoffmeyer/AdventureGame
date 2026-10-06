@@ -21,6 +21,9 @@ public class Player {
 
     public void dropItem(Item item, Room room) {
         inventory.remove(item);
+        if(weapon == item){
+            weapon = null;
+        }
         room.addItem(item);
     }
 
@@ -115,4 +118,5 @@ public class Player {
     public Weapon getWeapon() {
         return weapon;
     }
+
 }

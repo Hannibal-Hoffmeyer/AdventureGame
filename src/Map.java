@@ -14,9 +14,10 @@ public class Map {
     Item rope = new Item("Rope", "A thick and sturdy rope");
     Food apple = new Food("Apple", "A delicious red apple", 10);
     Food mushroom = new Food("Mushroom", "A red mushroom with white spots", -10);
-    MeleeWeapon sword = new MeleeWeapon("Sword", "A rusty sword", -20);
-    RangedWeapon crossbow = new RangedWeapon("Crossbow", "A wooden crossbow" ,-15, 5);
-
+    MeleeWeapon sword = new MeleeWeapon("Sword", "A rusty sword", 20);
+    MeleeWeapon club = new MeleeWeapon("Club", "a big wooden club", 10);
+    RangedWeapon crossbow = new RangedWeapon("Crossbow", "A wooden crossbow" ,15, 5);
+    Enemy Troll = new Enemy("Troll", "Big stinky Troll", 40, club, room5);
 
     public Map() {
 
@@ -45,6 +46,7 @@ public class Map {
         room2.addItem(mushroom);
         room4.addItem(sword);
         room3.addItem(crossbow);
+        room5.addEnemy(Troll);
     }
 
     public Room getFirstRoom() {

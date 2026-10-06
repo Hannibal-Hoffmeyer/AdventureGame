@@ -9,9 +9,14 @@ public class Room {
 
     private ArrayList<Item> items;
 
+    private ArrayList<Enemy> enemies;
+
+
     public Room(String description) {
         this.description = description;
         this.items = new ArrayList<>();
+        this.enemies = new ArrayList<>();
+
     }
 
     public void addItem(Item item) {
@@ -33,14 +38,31 @@ public class Room {
         return null;
     }
 
-
-
     public ArrayList<Item> getItems() {
         return items;
     }
 
     public void removeItem(Item item) {
         items.remove(item);
+    }
+    public void addEnemy(Enemy enemy){
+        enemies.add(enemy);
+    }
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
+    public void printEnemy(){
+        for(Enemy enemy : enemies){
+            IO.println("you see " + enemy.getEnemyDescription());
+        }
+    }
+    public Enemy getEnemy(String shortName) {
+        for (Enemy enemy : enemies) {
+            if (enemy.getShortName().equalsIgnoreCase(shortName)) {
+                return enemy;
+            }
+        }
+        return null;
     }
 
     public String getDescription() {
