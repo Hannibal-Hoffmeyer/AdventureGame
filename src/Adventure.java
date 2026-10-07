@@ -22,6 +22,7 @@ public class Adventure {
                 case "LOOK" -> {
                     IO.println(player.getCurrentRoom().getDescription());
                     player.getCurrentRoom().printItems();
+                    player.getCurrentRoom().printEnemy();
                 }
                 case "HEALTH" -> {
                     if (player.getHealth() >= 100) {
@@ -144,25 +145,20 @@ public class Adventure {
                     }
                 }
                 case "ATTACK" -> {
-                    if (player.getWeapon() == null) {
-                        IO.println("You don't have a weapon equipped.");
+                    if (parts.length < 2) {
+                        IO.println("Please specify an enemy.");
                         break;
                     }
 
-                    if (!player.getWeapon().canUse()) {
-                        IO.println("Your weapon is out of ammunition.");
-                        break;
+                    String enemyName = parts[1];
+
+                    Enemy enemy = player.getCurrentRoom().getEnemy(enemyName);
+
+                    if (enemy != null) {
+                        player.attack(enemy);
+                    } else {
+                        IO.println("There is no such enemy here.");
                     }
-
-                    int damage = player.getWeapon().attack();
-
-                    IO.println("You attacked with the " + player.getWeapon().getShortName() + ".");
-                    IO.println("Damage: " + damage);
-
-                    if (player.getWeapon().remainingAmmunition() >= 0) {
-                        IO.println("Ammunition left: " + player.getWeapon().remainingAmmunition());
-                    }
-
                 }
 
             }

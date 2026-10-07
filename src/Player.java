@@ -119,4 +119,24 @@ public class Player {
         return weapon;
     }
 
+    public void attack(Enemy enemy) {
+
+        if (weapon == null) {
+            IO.println("You don't have a weapon equipped.");
+            return;
+        }
+
+        if (weapon.canUse()) {
+            int damage = weapon.attack();
+            enemy.takeDamage(damage);
+
+            IO.println("You attacked the " + enemy.getShortName()
+                    + " for " + damage + " damage.");
+
+        } else {
+            IO.println("You cannot use the weapon.");
+        }
+    }
+
+
 }

@@ -36,4 +36,11 @@ public class Enemy {
     public void setEnemyRoom(Room room){
         this.enemyRoom = room;
     }
+    public void takeDamage(int damage) {
+        enemyHp -= damage;
+
+        if (enemyHp < 0) {
+            enemyHp = 0;
+        }
+    }
 }

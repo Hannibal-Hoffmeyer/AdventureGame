@@ -17,7 +17,7 @@ public class Map {
     MeleeWeapon sword = new MeleeWeapon("Sword", "A rusty sword", 20);
     MeleeWeapon club = new MeleeWeapon("Club", "a big wooden club", 10);
     RangedWeapon crossbow = new RangedWeapon("Crossbow", "A wooden crossbow" ,15, 5);
-    Enemy Troll = new Enemy("Troll", "Big stinky Troll", 40, club, room5);
+    Enemy Troll = new Enemy("Troll", "Big stinky Troll", 40, club, room1);
 
     public Map() {
 
@@ -44,9 +44,9 @@ public class Map {
         room8.addItem(key);
         room1.addItem(apple);
         room2.addItem(mushroom);
-        room4.addItem(sword);
+        room1.addItem(sword);
         room3.addItem(crossbow);
-        room5.addEnemy(Troll);
+        room1.addEnemy(Troll);
     }
 
     public Room getFirstRoom() {
