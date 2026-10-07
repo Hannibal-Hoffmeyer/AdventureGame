@@ -3,6 +3,8 @@ public class Adventure {
     public void AdventureStart() {
         Map map = new Map();
         Player player = new Player(map.getFirstRoom());
+        boolean chestOpened = false;
+        Item treasure = new Item("treasure", "a large quantity of gold and jewels");
 
 
         boolean AdventureStart = true;
@@ -11,6 +13,16 @@ public class Adventure {
         userInterFace.welcomeToTheGame();
 
         while (AdventureStart) {
+
+            if(player.getItem("treasure") !=null){
+                IO.println("CONGRATULATIONS ON FINDING THE TREASURE, YOU WIN!");
+                break;
+            }
+
+            if (player.getHealth() <= 0) {
+                IO.println("GAME OVER");
+                break;
+            }
 
             String input = userInterFace.command();
 
@@ -156,11 +168,11 @@ public class Adventure {
 
                     if (enemy != null) {
                         player.attack(enemy);
-                        if(enemy.getEnemyHp()<= 0){
+                        if (enemy.getEnemyHp() <= 0) {
 
                             Weapon enemyWeapon = enemy.getEnemyWeapon();
 
-                            if(enemyWeapon != null){
+                            if (enemyWeapon != null) {
 
                                 player.getCurrentRoom().addItem(enemyWeapon);
                             }
@@ -173,8 +185,37 @@ public class Adventure {
                         IO.println("There is no such enemy here.");
                     }
                 }
+                    case "OPEN" -> {
+                        if (parts.length < 2) {
+                            IO.println("What do you want to open?");
+                            break;
+                        }
+
+                        String object = parts[1];
+
+                        if (object.equalsIgnoreCase("chest")) {
+
+                            if (chestOpened) {
+                                IO.println("The chest is already open.");
+                            } else {
+                                Item key = player.getItem("key");
+
+                                if (key != null) {
+                                    IO.println("You unlock the chest with the key.");
+                                    IO.println("Inside the chest you find a large treasure!");
+
+                                    player.getCurrentRoom().addItem(treasure);
+
+                                    chestOpened = true;
+                                } else {
+                                    IO.println("The chest is locked. You need a key.");
+                                }
+                            }
+                        }
+                    }
+                }
 
             }
         }
     }
-}
+
