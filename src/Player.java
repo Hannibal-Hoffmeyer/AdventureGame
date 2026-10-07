@@ -21,7 +21,7 @@ public class Player {
 
     public void dropItem(Item item, Room room) {
         inventory.remove(item);
-        if(weapon == item){
+        if (weapon == item) {
             weapon = null;
         }
         room.addItem(item);
@@ -132,11 +132,26 @@ public class Player {
 
             IO.println("You attacked the " + enemy.getShortName()
                     + " for " + damage + " damage.");
+            if(enemy.getEnemyHp() > 0){
+                int enemyDamage = enemy.attack();
+                takeDamage(enemyDamage);
 
-        } else {
+                IO.println("the " + enemy.getShortName() + " retaliates and attacks you for " + enemyDamage + " damage");
+                IO.println("youre at " + health + " health");
+            }
+
+        }
+        else {
             IO.println("You cannot use the weapon.");
         }
     }
 
+    public void takeDamage(int damage) {
+        health -= damage;
 
+        if (health < 0) {
+            health = 0;
+        }
+
+    }
 }

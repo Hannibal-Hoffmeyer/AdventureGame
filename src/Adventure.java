@@ -156,6 +156,19 @@ public class Adventure {
 
                     if (enemy != null) {
                         player.attack(enemy);
+                        if(enemy.getEnemyHp()<= 0){
+
+                            Weapon enemyWeapon = enemy.getEnemyWeapon();
+
+                            if(enemyWeapon != null){
+
+                                player.getCurrentRoom().addItem(enemyWeapon);
+                            }
+
+                            player.getCurrentRoom().removeEnemy(enemy);
+
+                            IO.println("you have slain the " + enemy.getShortName() + " it dropped " + enemyWeapon.getLongName());
+                        }
                     } else {
                         IO.println("There is no such enemy here.");
                     }

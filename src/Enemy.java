@@ -43,4 +43,10 @@ public class Enemy {
             enemyHp = 0;
         }
     }
+    public int attack(){
+        if (enemyWeapon != null){
+            return enemyWeapon.attack();
+        }
+        return 0;
+    }
 }
