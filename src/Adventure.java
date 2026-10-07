@@ -40,7 +40,7 @@ public class Adventure {
                     if (player.getHealth() >= 100) {
                         IO.println(player.getHealth() + " You are in good health");
                     } else
-                        IO.println(player.getHealth() + " You are low health, eat some food to get your strengt back");
+                        IO.println(player.getHealth() + " You are low health, eat some food to get your strenght back");
                 }
 
                 case "INVENTORY", "INV", "I" -> {
