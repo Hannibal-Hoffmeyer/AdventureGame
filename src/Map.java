@@ -8,7 +8,7 @@ public class Map {
     private final Room room6 = new Room("As you move on, you find a bridge nearby, but there's something guarding it..");
     private final Room room7 = new Room("You find an old hut nearby, but it doesn't look like anyone is there; it has been abandoned for a long time.");
     private final Room room8 = new Room("At the tower you see there's no one guarding it and the door is half-open. Maybe someone's inside?");
-    private final Room room9 = new Room("You continue across the bridge and see a huge tower to the east.");
+    private final Room room9 = new Room("You continue across the bridge and see a huge tower to the west.");
     Item key = new Item("key", "A shiny golden key");
     Food apple = new Food("Apple", "A delicious red apple", 10);
     Food cake = new Food("cake", "a big birthday cake!!!", 50);
@@ -16,7 +16,7 @@ public class Map {
     MeleeWeapon sword = new MeleeWeapon("Sword", "A rusty sword", 20);
     MeleeWeapon club = new MeleeWeapon("Club", "a big wooden club", 20);
     MeleeWeapon claws = new MeleeWeapon("Claws", "Big sharp claws", 100);
-    RangedWeapon crossbow = new RangedWeapon("Crossbow", "A wooden crossbow", 25, 5);
+    RangedWeapon crossbow = new RangedWeapon("Crossbow", "A wooden crossbow", 25, 4);
     MeleeWeapon axe = new MeleeWeapon("axe", "heavy doublesided axe", 25);
     Enemy troll = new Enemy("troll", "big stinky Troll", 40, club, room6);
     Enemy bear = new Enemy("bear", "sleepy grizzly", 25, claws, room2);
