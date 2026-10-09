@@ -131,7 +131,7 @@ public class Player {
             enemy.takeDamage(damage);
 
             IO.println("You attacked the " + enemy.getShortName()
-                    + " for " + damage + " damage.");
+                    + " for " + damage + " damage. The " + enemy.getShortName() +  " has " + enemy.getEnemyHp() +  " HP left");
             if(enemy.getEnemyHp() > 0){
                 int enemyDamage = enemy.attack();
                 takeDamage(enemyDamage);
